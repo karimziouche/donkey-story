@@ -1,0 +1,26 @@
+<form [formGroup]="donkeyForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="name" class="form-label">Nom</label>
+    <input id="name" type="text" class="form-control" formControlName="name">
+  </div>
+  <div class="mb-3">
+    <label for="origin" class="form-label">Origine</label>
+    <input id="origin" type="text" class="form-control" formControlName="origin">
+  </div>
+  <div class="mb-3">
+    <label for="birthDate" class="form-label">Date de naissance</label>
+    <input id="birthDate" type="date" class="form-control" formControlName="birthDate">
+  </div>
+  <div class="mb-3">
+    <label for="image" class="form-label">image</label>
+    <input id="image" type="url" class="form-control" formControlName="image">
+  </div>
+  <button type="submit"
+   class="btn"
+   [class.btn-success]="donkeyForm.valid"
+   [class.btn-secondary]="donkeyForm.invalid"
+   [disabled]="donkeyForm.invalid"
+   >
+   Ajouter le donkey
+  </button>
+</form>

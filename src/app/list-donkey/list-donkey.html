@@ -1,0 +1,31 @@
+<h2>Donkeys disponibles</h2>
+
+<div class="row">
+  @for (donkey of donkeys; track donkey) {
+    <div class="col-md-4 mb-3">
+      <div
+        class="card h-100"
+        (mouseenter)="hoveredDonkey = donkey"
+        (mouseleave)="hoveredDonkey = null"
+      >
+        <div class="image-wrapper">
+          <img [src]="donkey.image" [alt]="donkey.name" class="card-img-top">
+
+          @if (hoveredDonkey === donkey) {
+            <div class="donkey-info">
+              <p><strong>Origine :</strong> {{ donkey.origin }}</p>
+              <p><strong>Né le :</strong> {{ donkey.birthDate | date: 'dd/MM/yyyy' }}</p>
+            </div>
+          }
+        </div>
+
+        <div class="card-body">
+          <h5 class="card-title">{{ donkey.name }}</h5>
+          <button class="btn btn-primary" (click)="adopt(donkey)">Adopter</button>
+        </div>
+      </div>
+    </div>
+  } @empty {
+    <p>Aucun donkey disponible pour le moment.</p>
+  }
+</div>

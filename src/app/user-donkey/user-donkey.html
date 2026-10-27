@@ -1,0 +1,7 @@
+<h2>Mes donkeys</h2>
+
+@for (donkey of donkeys; track donkey) {
+  <img [src]="donkey.image" [alt]="donkey.name" class="img-fluid rounded mb-2">
+} @empty {
+  <p>Tu n'as pas encore adopté de donkey.</p>
+}
